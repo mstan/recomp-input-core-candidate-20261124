@@ -134,7 +134,7 @@ const char *ri_player_label(const ri_context *c,unsigned p){
  return s->sources&RI_SOURCE_KEYBOARD?"Keyboard":"None";
 }
 /* Genesis player_deadzone and bind_held: percentage clamps, strict axis tests. */
-static int binding_held(const ri_device *d,uint32_t b,int dz){
+int ri_binding_held(const ri_device *d,uint32_t b,int dz){
  if(!d||!b)return 0;
  if(b>=1000u){uint32_t mask=b-1000u;return mask&&(d->buttons&mask)==mask;}
  if(b>=100u){unsigned a=(b-100u)/2u;if(a>=RI_MAX_AXES)return 0;int v=d->axes[a];return (b-100u)&1u?v>dz:v< -dz;}
@@ -147,7 +147,7 @@ uint32_t ri_sample(const ri_context *c,unsigned p){
  const int dz=(int)(s->deadzone_pct*32767u/100u);
  for(unsigned a=0;a<c->actions;a++){
   if((s->sources&RI_SOURCE_KEYBOARD)&&s->key_binding[a]&&c->keys[s->key_binding[a]])mask|=1u<<a;
-  if((s->sources&RI_SOURCE_GAMEPAD)&&binding_held(d,s->pad_binding[a],dz))mask|=1u<<a;
+  if((s->sources&RI_SOURCE_GAMEPAD)&&ri_binding_held(d,s->pad_binding[a],dz))mask|=1u<<a;
  }
  return mask;
 }
