@@ -1,0 +1,47 @@
+{
+  "donors": [
+    {
+      "repository": "https://github.com/RetroPortingToolKit/recomp-ui",
+      "revision": "a5380cd02e0c8da3e2d0f73bd3980a0b4e3ed60c",
+      "path": "src/common/launcher_input.c",
+      "sha256": "edd4a428679c29944540f5cfbc43bd1fb87f5b44c90e73a84557fc64ec4cbdd3"
+    },
+    {
+      "repository": "https://github.com/RetroPortingToolKit/recomp-ui",
+      "revision": "a5380cd02e0c8da3e2d0f73bd3980a0b4e3ed60c",
+      "path": "src/common/launcher_model.c",
+      "sha256": "59859556a8b004bffffc45bbfaf60a5896533a63763fc15da203e283e9741cc2"
+    },
+    {
+      "repository": "https://github.com/RetroPortingToolKit/recomp-ui",
+      "revision": "a5380cd02e0c8da3e2d0f73bd3980a0b4e3ed60c",
+      "path": "src/recomp_launcher.h",
+      "sha256": "670056a7b4d6b47ef5f7532c79c8e028931ab25d4e4f3bdef8a6843f956944c6"
+    },
+    {
+      "repository": "https://github.com/RetroPortingToolKit/recomp-ui",
+      "revision": "a5380cd02e0c8da3e2d0f73bd3980a0b4e3ed60c",
+      "path": "src/common/pad_binds.h",
+      "sha256": "50b64edaeca482dae7b1f4fb2148e2498c48ab0dae74ff54c159058179642158"
+    },
+    {
+      "repository": "https://github.com/mstan/segagenesisrecomp",
+      "revision": "403bf4f2c960644c35fca8d8c9a1aa7d03858846",
+      "path": "runner/gamepad.c",
+      "sha256": "cd4b0d26511c5cdfdc5a8fef863bd73c492ab1340213af2287dc75765de61c1b"
+    },
+    {
+      "repository": "https://github.com/mstan/segagenesisrecomp",
+      "revision": "403bf4f2c960644c35fca8d8c9a1aa7d03858846",
+      "path": "runner/input_map.c",
+      "sha256": "73d5e968767f05a7d31f376d31be859a7e8e34963ae7fed07fc67ec34b47bd0a"
+    }
+  ],
+  "changes": [
+    "SDL reads and game memory/button identities replaced by caller snapshots and logical action indices.",
+    "Per-instance controller selection and shared launcher binding encoding retained.",
+    "Rest band8000, capture20000 and Genesis strict percentage-axis threshold retained.",
+    "Physical-key reconnection, ambiguous model-GUID handling and transactional saved-selection callback made explicit.",
+    "Friendly labels keep remembered names and do not expose GUIDs as primary labels."
+  ]
+}

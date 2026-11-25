@@ -1,0 +1,2 @@
+* text=auto eol=lf
+tests/oracle/launcher_input.* -text
