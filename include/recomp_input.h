@@ -50,6 +50,8 @@ int ri_restore(ri_context *context,const ri_player *players,size_t count);
 int ri_connected(const ri_context *context,unsigned player);
 const char *ri_player_label(const ri_context *context,unsigned player);
 uint32_t ri_sample(const ri_context *context,unsigned player);
+/* Raw SDL axis threshold; the caller retains device ownership and mappings. */
+int ri_binding_held(const ri_device *device,uint32_t binding,int deadzone_raw);
 void ri_gameplay_blocked(ri_context *context,int blocked);
 int ri_at_rest(const ri_context *context,unsigned player);
 /* Begin while controls may be held; capture waits for full release. Returns

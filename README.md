@@ -80,7 +80,25 @@ launcher UI and gameplay integration remain later checks.
 ## Provenance
 
 `PROVENANCE.json` records donor revisions and source hashes. The frozen launcher
-oracle retains its MIT license under `licenses/`; Genesis-derived input policy
-and new glue use PolyForm Noncommercial 1.0.0 with the donor additional permission
-grant retained. No game files, profiles, owner device data or captured input is
-included.
+oracle retains its MIT license under `licenses/`. Owner contributions are also
+available under MIT as documented in `LICENSE-SCOPE.md`; historical donor
+notices remain available. No game files, profiles, owner device data or captured
+input is included.
+
+## Analog profiles and finite haptics
+
+`recomp_input_effects.h` adds native axis shaping and a serialized haptic owner.
+The byte rescale, clipped pointer, and half-axis profiles preserve their
+individual deadbands, signed endpoints, centres, and integer rounding. They do
+not change stored bindings or guest pad layouts.
+
+The haptic context combines two sources per player, routes their maximum motor
+strengths to physical device IDs, expires frame or millisecond sources, renews
+finite effects, and stops devices on transfer or release. Its backend callback
+only applies the resulting motor command. Use the existing input owner or lock;
+callbacks must not reenter that context. Release each device before closing its
+handle, then destroy the context after its callers stop. Frame lifetimes use
+unsigned 32-bit subtraction. Millisecond timestamps use one monotonic clock.
+No worker, lock, SDL dependency, handle ownership, or hardware capabilities are
+added by the provider.
+
