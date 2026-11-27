@@ -1,5 +1,7 @@
 # recomp-input-core
 
+Current licensing and the grant for existing owner contributions are documented in [LICENSE-SCOPE.md](LICENSE-SCOPE.md).
+
 Host controller selection, remapping and input policy extracted from shared
 recomp-ui and Genesis runner code. It operates on caller-supplied standard
 controller/keyboard snapshots; SDL2/SDL3 handles, event pumps, native device
